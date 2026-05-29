@@ -25,15 +25,29 @@ public class Main {
     public static void printBoard(SudokuBoard board) {
 
         for (int row = 0; row < 9; row++) {
+
+            if (row % 3 == 0 && row != 0) {
+                System.out.println("---------------------");
+            }
             
             for (int col = 0; col < 9; col++) {
 
-                System.out.print(board.getValue(row, col) + " ");
+                if (col % 3 == 0 && col != 0) {
+                    System.out.print("| ");
+                }
+
+                int value = board.getValue(row, col);
+
+                if (value == 0) {
+                    System.out.print(". ");
+                } else {
+                    System.out.print(value + " ");
+                }
             }
 
             System.out.println();
         }
-    }
+    }   
 }
 
 /* SudokuBoard board: Creates the 9x9 grid
